@@ -1,0 +1,16 @@
+<package>
+  <description brief="p3atGazeboRos">
+
+     p3atGazeboRos
+
+  </description>
+  <author>balakumar</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/p3atGazeboRos</url>
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+
+</package>
+
+

@@ -1,0 +1,12 @@
+<launch>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+  <include file="$(find p2os_urdf)/launch/upload_pioneer3dx.xml"/>
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_pioneer" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model Pioneer3at" respawn="false" output="screen" />
+   
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"></node>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"></node>
+</launch>

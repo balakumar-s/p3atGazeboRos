@@ -1,0 +1,24 @@
+<launch>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+  <include file="$(find p3atGazeboRos)/launch/upload_pioneer3at.xml"/>
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_pioneer" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model Pioneer3at" respawn="false" output="screen" />
+   
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"></node>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"></node>
+  <arg name="controller" default="logitech" />
+	<!-- run the teleop node to send movement velocities to the pioneer -->
+	
+	<rosparam param="/p2os_teleop" command="load" file="$(find p3atGazeboRos)/params/joystick_$(arg controller).yaml" />
+	<node pkg="p3atGazeboRos" type="p2os_teleop" name="p2os_teleop" output="screen" >
+		<remap from="/p2os/des_vel" to="/base_controller/command" />
+		<remap from="/p2os_teleop/cmd_vel" to="/cmd_vel" />
+		<remap from="/p2os_teleop/joy" to="/joy" />
+	</node>
+	
+	<!-- run a joy node to control the pioneer -->
+	<node pkg="joy" type="joy_node" name="pioneer_joy_controller" />
+</launch>

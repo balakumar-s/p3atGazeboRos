@@ -1,0 +1,14 @@
+<launch>
+	<arg name="controller" default="logitech" />
+	<!-- run the teleop node to send movement velocities to the pioneer -->
+	
+	<rosparam param="/p2os_teleop" command="load" file="$(find p3atGazeboRos)/params/joystick_$(arg controller).yaml" />
+	<node pkg="p2os_teleop" type="p2os_teleop" name="p2os_teleop" output="screen" >
+		<remap from="/p2os/des_vel" to="/base_controller/command" />
+		<remap from="/p2os_teleop/cmd_vel" to="/cmd_vel" />
+		<remap from="/p2os_teleop/joy" to="/joy" />
+	</node>
+	
+	<!-- run a joy node to control the pioneer -->
+	<node pkg="joy" type="joy_node" name="pioneer_joy_controller" />
+</launch>
