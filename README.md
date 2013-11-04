@@ -4,8 +4,8 @@ This is a modified version of p2os package
 author: Balakumar Sundaralingam
 ____________________________________________
 
-Run demo.launch file to start the simulation
-
+Run demo.launch file to start the simulation.
+Run gmapping.launch to start gmapping.
 
 To Do:
 

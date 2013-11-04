@@ -38,6 +38,14 @@ name="pioneer3at"
 		<material value="Gazebo/Red"/>
 	</gazebo>
 
+<link name="odom">
+</link>
+<joint name="odom_base" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<parent link="odom"/>
+		<child link="base_link"/>
+	</joint>
+	
 <!-- Top -->
 	<link name="top_plate">
 		<inertial>
@@ -390,7 +398,7 @@ name="pioneer3at"
     <torque>200</torque>
     <commandTopic>cmd_vel</commandTopic>
     <odometryTopic>odom</odometryTopic>
-    <odometryFrame>base_link</odometryFrame>
+    <odometryFrame>odom</odometryFrame>
   </plugin>
 </gazebo>
  <joint name="hokuyo_joint" type="fixed">

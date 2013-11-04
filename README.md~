@@ -1,5 +1,6 @@
 #p3atGazeboRos
 #### Gazebo simulation of pioneer 3at with hokuyo laser with ROS hydro plugins
+This is a modified version of p2os package
 author: Balakumar Sundaralingam
 ____________________________________________
 
