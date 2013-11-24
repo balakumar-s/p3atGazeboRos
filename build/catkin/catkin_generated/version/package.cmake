@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "catkin")
-set(catkin_VERSION "0.5.74")
+set(catkin_VERSION "0.5.77")
 set(catkin_MAINTAINER "Dirk Thomas <dthomas@osrfoundation.org>")
 set(catkin_BUILD_DEPENDS "gtest" "python-argparse" "python-catkin-pkg" "python-empy" "python-nose")
 set(catkin_RUN_DEPENDS "cmake" "gtest" "python-argparse" "python-catkin-pkg" "python-empy" "python-nose")

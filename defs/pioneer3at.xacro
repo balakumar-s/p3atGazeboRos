@@ -38,14 +38,21 @@ name="pioneer3at"
 		<material value="Gazebo/Red"/>
 	</gazebo>
 
-<link name="odom">
+<!--link name="odom">
 </link>
-<joint name="odom_base" type="fixed">
+<joint name="odom_base" type="floating">
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<parent link="odom"/>
 		<child link="base_link"/>
+	</joint-->
+<!--<link name="map">
+</link-->
+<!--<joint name="map_odom" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<parent link="map"/>
+		<child link="odom"/>
 	</joint>
-	
+	-->
 <!-- Top -->
 	<link name="top_plate">
 		<inertial>
@@ -386,7 +393,7 @@ name="pioneer3at"
 
 <gazebo>
   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
-    <updateRate>100.0</updateRate>
+    <updateRate>50000.0</updateRate>
     <robotNamespace>/</robotNamespace>
     <leftFrontJoint>p3at_front_left_wheel_joint</leftFrontJoint>
     <rightFrontJoint>p3at_front_right_wheel_joint</rightFrontJoint>
@@ -399,6 +406,7 @@ name="pioneer3at"
     <commandTopic>cmd_vel</commandTopic>
     <odometryTopic>odom</odometryTopic>
     <odometryFrame>odom</odometryFrame>
+    <broadcastTF>1</broadcastTF>
   </plugin>
 </gazebo>
  <joint name="hokuyo_joint" type="fixed">

@@ -3,12 +3,13 @@
   <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
 
   <include file="$(find p3atGazeboRos)/launch/upload_pioneer3at.xml"/>
-
+  <!--node name="map_odom_tf_publisher" pkg="p3atGazeboRos" type="map_odom_tf_publisher" output="screen"></node-->
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="spawn_pioneer" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model Pioneer3at" respawn="false" output="screen" />
-   
+  <!--node name="map_odom_tf_publisher" pkg="p3atGazeboRos" type="map_odom_tf_publisher"></node--> 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"></node>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"></node>
+
   <arg name="controller" default="logitech" />
 	<!-- run the teleop node to send movement velocities to the pioneer -->
 	

@@ -228,6 +228,19 @@ doxygen/fast:
 .PHONY : doxygen/fast
 
 #=============================================================================
+# Target rules for targets named map_odom_tf_publisher
+
+# Build rule for target.
+map_odom_tf_publisher: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 map_odom_tf_publisher
+.PHONY : map_odom_tf_publisher
+
+# fast build rule for target.
+map_odom_tf_publisher/fast:
+	$(MAKE) -f CMakeFiles/map_odom_tf_publisher.dir/build.make CMakeFiles/map_odom_tf_publisher.dir/build
+.PHONY : map_odom_tf_publisher/fast
+
+#=============================================================================
 # Target rules for targets named p2os_teleop
 
 # Build rule for target.
@@ -422,6 +435,30 @@ gtest_main/fast:
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+src/map_odom_tf_publisher.o: src/map_odom_tf_publisher.cpp.o
+.PHONY : src/map_odom_tf_publisher.o
+
+# target to build an object file
+src/map_odom_tf_publisher.cpp.o:
+	$(MAKE) -f CMakeFiles/map_odom_tf_publisher.dir/build.make CMakeFiles/map_odom_tf_publisher.dir/src/map_odom_tf_publisher.cpp.o
+.PHONY : src/map_odom_tf_publisher.cpp.o
+
+src/map_odom_tf_publisher.i: src/map_odom_tf_publisher.cpp.i
+.PHONY : src/map_odom_tf_publisher.i
+
+# target to preprocess a source file
+src/map_odom_tf_publisher.cpp.i:
+	$(MAKE) -f CMakeFiles/map_odom_tf_publisher.dir/build.make CMakeFiles/map_odom_tf_publisher.dir/src/map_odom_tf_publisher.cpp.i
+.PHONY : src/map_odom_tf_publisher.cpp.i
+
+src/map_odom_tf_publisher.s: src/map_odom_tf_publisher.cpp.s
+.PHONY : src/map_odom_tf_publisher.s
+
+# target to generate assembly for a file
+src/map_odom_tf_publisher.cpp.s:
+	$(MAKE) -f CMakeFiles/map_odom_tf_publisher.dir/build.make CMakeFiles/map_odom_tf_publisher.dir/src/map_odom_tf_publisher.cpp.s
+.PHONY : src/map_odom_tf_publisher.cpp.s
+
 src/p2os_teleop.o: src/p2os_teleop.cc.o
 .PHONY : src/p2os_teleop.o
 
@@ -464,6 +501,7 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... map_odom_tf_publisher"
 	@echo "... p2os_teleop"
 	@echo "... rebuild_cache"
 	@echo "... rosbuild_clean-test-results"
@@ -480,6 +518,9 @@ help:
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... src/map_odom_tf_publisher.o"
+	@echo "... src/map_odom_tf_publisher.i"
+	@echo "... src/map_odom_tf_publisher.s"
 	@echo "... src/p2os_teleop.o"
 	@echo "... src/p2os_teleop.i"
 	@echo "... src/p2os_teleop.s"
